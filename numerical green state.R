@@ -14,3 +14,14 @@ plot(e_g,D_Q_e_g, type = 'l')
 D_Q_e_g[1:3]
 
 # There is no numerical solution found.
+
+
+# Alternative: directly maximize the utility w.r.t. e_g: 
+# beta is needed; chosen at some plausible level
+b <- 0.96
+
+# Give utility function in terms of e_g
+U <- log(((1)/(1+b))*(1+A*e_g^(gamma)-e_g)) + b*log(((b)/(1+b))*(1+A*e_g^(gamma)-e_g)) - (1+b)*((e_g*N)/mu)^(eta)
+
+# plot utility function w.r.t. e_g
+plot(e_g,U, type = 'l')
