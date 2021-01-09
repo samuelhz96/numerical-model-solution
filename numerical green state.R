@@ -25,3 +25,18 @@ U <- log(((1)/(1+b))*(1+A*e_g^(gamma)-e_g)) + b*log(((b)/(1+b))*(1+A*e_g^(gamma)
 
 # plot utility function w.r.t. e_g
 plot(e_g,U, type = 'l')
+
+
+
+
+
+# Define the same as before but for shorter range of emission values:
+e_g_2 <- seq(0.00000001,0.001,length.out = 10000)
+D_Q_e_g_2 <- ((gamma*A*e_g_2^(gamma-1)-1)/(1+A*e_g_2^(gamma))-e_g_2)- eta*(N^eta)*(mu^(-eta))*e_g_2^(eta-1)
+U_2 <- log(((1)/(1+b))*(1+A*e_g_2^(gamma)-e_g_2)) + b*log(((b)/(1+b))*(1+A*e_g_2^(gamma)-e_g_2)) - (1+b)*((e_g_2*N)/mu)^(eta)
+
+plot(e_g_2,D_Q_e_g_2, type = 'l')
+plot(e_g_2,U_2, type = 'l')
+
+# it appears as the utility is maximized for an output very close to zero, 
+# but not exactly zero
