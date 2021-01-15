@@ -80,6 +80,6 @@ for(i in 1:length(mu)){
 }
 persp(mu,eta,e_g_outer,ticktype = 'detailed', theta = -45, phi=20)
 
-# clearly the varuation in mu explains the most change, while eta does appear to have a greater influence than A or gamma
+# clearly the variation  in mu explains the most change, while eta does appear to have a greater influence than A or gamma
 
 
