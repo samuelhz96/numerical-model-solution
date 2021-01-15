@@ -40,3 +40,31 @@ plot(e_g_2,U_2, type = 'l')
 
 # it appears as the utility is maximized for an output very close to zero, 
 # but not exactly zero
+
+
+
+#############################################################################################
+# It follows the same procedure but to find the optimal emissions for varying gamma and A:
+eta <- 2; mu <- 0.2; b <- 0.96
+# Define HH level emission output vector
+e_g <- seq(0.0000001,0.0001,length.out = 100)
+gamma <- seq(0.2,0.5,length.out = 30)
+A <- seq(1,2,length.out = 30)
+e_g_outer <- matrix(rep(0,30^2),ncol = 30,nrow = 30)
+
+for(i in 1:length(gamma)){
+  for(j in 1:length(A)){
+    e_g_outer[i,j] <- e_g[which.max(log(((1)/(1+b))*(1+A[j]*e_g^(gamma[i])-e_g)) + 
+                            b*log(((b)/(1+b))*(1+A[j]*e_g^(gamma[i])-e_g)) - 
+                            (1+b)*((e_g*N)/mu)^(eta))]
+  }
+}
+e_g_outer
+persp(gamma,A,e_g_outer,zlim = c(0.00001,0.00015),ticktype = 'detailed')
+
+
+# It looks like this is almost independent of gamma and A values. Maybe an approach with mu and eta varying explains more
+
+
+
+
