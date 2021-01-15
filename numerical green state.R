@@ -66,10 +66,10 @@ persp(gamma,A,e_g_outer,zlim = c(0.00001,0.00015),ticktype = 'detailed')
 # It looks like this is almost independent of gamma and A values. Maybe an approach with mu and eta varying explains more:
 # vary eta and mu
 gamma <- 0.5; A <- 2; b <- 0.96
-e_g <- seq(0.0000001,0.0001,length.out = 100)
-mu <- seq(0.01,0.99,length.out = 30)
-eta <- seq(1,2,length.out = 30)
-e_g_outer <- matrix(rep(0,30^2),ncol = 30,nrow = 30)
+e_g <- seq(0.0000001,0.01,length.out = 100)
+mu <- seq(0.01,0.99,length.out = 40)
+eta <- seq(1,2,length.out = 40)
+e_g_outer <- matrix(rep(0,40^2),ncol = 40,nrow = 40)
 
 for(i in 1:length(mu)){
   for(j in 1:length(eta)){
